@@ -1,0 +1,69 @@
+Respostas da Atividade Prática: Git e GitHub
+1. Introdução e Conceitos
+Por que o Git é considerado um sistema de controle de versão distribuído? Resposta: É distribuído porque cada cópia de um repositório Git contém todo o histórico do projeto. Isso é crucial, pois permite que eu trabalhe offline e mantenha um controle total de versões, sem depender de um servidor central.
+
+Qual a diferença entre working directory, staging area e repository? Resposta:
+
+Working Directory (Diretório de Trabalho): É a pasta visível do projeto onde os arquivos estão sendo editados.
+
+Staging Area (Área de Preparação): É um índice intermediário onde eu coloco as alterações que quero incluir no próximo commit (usando git add).
+
+Repository (.git): É o banco de dados interno que armazena permanentemente o histórico e todos os commits.
+
+Para que serve o comando git clone? Resposta: Serve para baixar uma cópia completa de um repositório Git já existente (geralmente remoto) para minha máquina local, incluindo todo o histórico.
+
+Onde estão implementados fisicamente working directory, staging area e repository? Resposta:
+
+Working Directory: Sistema de arquivos local (a pasta visível do projeto).
+
+Staging Area: Implementado no arquivo de índice mantido dentro de .git/.
+
+Repository: Fisicamente na pasta oculta .git/ (onde o banco de dados de objetos reside).
+
+Quais os estados de um arquivo no repositório do git? Resposta: Os principais estados são: Untracked (não monitorado), Tracked (que se divide em Modified, Staged ou Unmodified).
+
+Explique as possíveis transições de estado de um arquivo no repositório do git? Resposta:
+
+Um arquivo Untracked (novo) se move para Staged através do git add.
+
+Um arquivo Unmodified (commitado) se move para Modified quando é editado.
+
+Um arquivo Modified se move para Staged usando git add.
+
+Um arquivo Staged se move para Unmodified (salvo no histórico) usando git commit.
+
+2. Prática com Git Local
+Etapa 1 - Criar o repositório
+Qual foi a mensagem exibida após o comando git init e o que ela significa na prática? Resposta: A mensagem foi Initialized empty Git repository in C:/Users/Lucas/aula-git/.git/. Na prática, significa que o Git criou a pasta .git dentro do meu diretório de trabalho, inicializando o repositório para começar a rastrear arquivos.
+
+Etapa 2 - Adicionar arquivo e fazer commit
+1. Qual o estado do arquivo antes e depois do git add? Resposta:
+
+Antes do git add: O arquivo estava untracked (não monitorado).
+
+Depois do git add: O arquivo foi para o estado staged (preparado para ser comitado).
+
+2. O que significa o estado untracked e tracked? Resposta: Um arquivo untracked é um arquivo novo que o Git ainda não está rastreando. Um arquivo tracked é aquele que o Git já conhece, pois já passou por um commit ou está no staging area.
+
+3. Qual o objetivo do git commit? Resposta: É registrar permanentemente as alterações que estão na staging area no histórico do repositório, criando um ponto de versão nomeado.
+
+4. Qual o estado do arquivo após o git commit? Resposta: O arquivo fica no estado unmodified (inalterado), o que é confirmado pelo git status que mostra nothing to commit, working tree clean.
+
+Etapa 3 - Histórico e alterações
+1. O que o comando git diff mostra? Resposta: Ele mostra as diferenças entre o que está no meu diretório de trabalho e o último commit realizado. Meu terminal mostrou a linha +"Nova linha" sendo adicionada ao arquivo.txt.
+
+2. Qual commit está atualmente apontado por HEAD? Resposta: HEAD aponta para o último commit da branch atual, que, neste caso, era o 7bd3a71 ("Primeiro commit").
+
+Etapa 4 - Trabalhando com Branches
+1. Como verificar em qual branch você está? Resposta: Usei o comando git status e ele indica a branch atual. O comando git branch também mostra a lista de branches e marca a atual.
+
+2. O que acontece se você rodar git merge nova-feature estando na branch principal? Resposta: As alterações feitas na branch nova-feature são integradas à branch principal (main). No meu caso, ocorreu um Fast-forward (a integração foi linear, sem a necessidade de um commit de merge).
+
+3. Conectando ao GitHub
+1. O que significa o -u ou --set-upstream no comando git push -u origin main? Resposta: O -u define a branch local (main) para rastrear (track) a branch remota (origin/main). Isso otimiza o fluxo de trabalho, permitindo que eu use apenas git push ou git pull nas próximas vezes.
+
+2. Como verificar os remotes configurados no repositório? Resposta: Uso o comando git remote -v. O resultado mostrou o meu repositório no GitHub configurado para buscar e enviar (fetch e push).
+
+Link do Repositório no GitHub:
+
+https://github.com/asunaluc/aula-git
